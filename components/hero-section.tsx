@@ -25,14 +25,14 @@ export function HeroSection() {
       <div className="pointer-events-none absolute inset-0 z-[3] rounded-[36px] bg-[radial-gradient(circle_at_50%_14%,rgba(255,255,255,0.16),transparent_20%),linear-gradient(180deg,rgba(13,13,13,0.54)_0%,transparent_24%,transparent_63%,rgba(13,13,13,0.82)_100%)] lg:rounded-[34px]" />
       <div className="pointer-events-none absolute inset-x-[8%] top-[9%] z-[4] h-[42%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.11),transparent_58%)] blur-3xl" />
 
-      <div className="relative z-[5] flex flex-col px-4 pb-5 pt-5 sm:px-5 sm:pb-6 sm:pt-5 lg:block lg:px-0 lg:pb-0 lg:pt-0">
-        <div className="order-1 mt-2 px-2 sm:mt-3 lg:mt-[-74px] lg:px-0">
+      <div className="relative z-[5] px-4 pb-5 pt-5 sm:px-5 sm:pb-6 sm:pt-5 lg:px-0 lg:pb-0 lg:pt-0">
+        <div className="mt-2 px-2 sm:mt-3 lg:hidden">
           <h1 className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
             Henry
           </h1>
         </div>
 
-        <div className="order-2 grid gap-6 pt-5 sm:gap-7 lg:grid-cols-[1fr_auto_1fr] lg:items-start lg:pt-0">
+        <div className="grid gap-6 pt-5 sm:gap-7 lg:grid-cols-[1fr_auto_1fr] lg:items-start lg:pt-0">
         <div className="hero-left translate-y-8 pt-2 text-center lg:max-w-[260px] lg:pt-20 lg:text-left">
           <div className="hero-text-panel inline-block w-full max-w-[23rem] rounded-[32px] p-4 sm:p-5">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.18em] text-white/58">
@@ -66,6 +66,12 @@ export function HeroSection() {
           </div>
         </div>
         </div>
+      </div>
+
+      <div className="relative z-[5] mt-5 hidden px-2 sm:mt-3 lg:mt-[-74px] lg:block lg:px-0">
+        <h1 className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
+          Henry
+        </h1>
       </div>
 
       <div className="relative z-[5]">

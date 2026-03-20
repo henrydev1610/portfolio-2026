@@ -220,7 +220,7 @@ export function TechStackCarousel() {
               pin: true,
               pinSpacing: true,
               scrub: true,
-              anticipatePin: 1,
+              anticipatePin: 0.5,
               invalidateOnRefresh: true,
               fastScrollEnd: true,
             },
@@ -232,30 +232,30 @@ export function TechStackCarousel() {
                 .timeline({
                   scrollTrigger: {
                     trigger: card,
-                    containerAnimation: mobileTween,
-                    start: "left 88%",
-                    end: "right 14%",
-                    scrub: 0.35,
-                  },
-                })
-                .fromTo(
-                  card,
-                  {
-                    opacity: 0.52,
-                    y: 18,
-                    scale: 0.94,
-                  },
-                  {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
+                  containerAnimation: mobileTween,
+                  start: "left 88%",
+                  end: "right 14%",
+                  scrub: true,
+                },
+              })
+              .fromTo(
+                card,
+                {
+                  opacity: 0.72,
+                  y: 10,
+                  scale: 0.97,
+                },
+                {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
                     ease: "none",
                   },
                 )
                 .to(card, {
-                  opacity: 0.52,
-                  y: -10,
-                  scale: 0.95,
+                  opacity: 0.72,
+                  y: -6,
+                  scale: 0.97,
                   ease: "none",
                 });
             });
@@ -323,8 +323,8 @@ export function TechStackCarousel() {
               start: "top top",
               end: () => `+=${Math.max(getTravel(), 1)}`,
               pin: true,
-              scrub: isCompactDesktop ? 0.2 : 0.26,
-              anticipatePin: 1,
+              scrub: true,
+              anticipatePin: 0.5,
               fastScrollEnd: true,
               invalidateOnRefresh: true,
             },
@@ -347,21 +347,21 @@ export function TechStackCarousel() {
                   containerAnimation: horizontalTween,
                   start: "left right",
                   end: "right left",
-                  scrub: 0.45,
+                  scrub: true,
                 },
               })
               .fromTo(
                 card,
                 {
-                  opacity: 0.26,
-                  scale: isCompactDesktop ? 0.88 : 0.82,
-                  y: isCompactDesktop ? 18 : 24,
-                  rotateY: isCompactDesktop ? 10 : 16,
-                  rotateZ: isCompactDesktop ? -0.8 : -1.2,
+                  opacity: 0.52,
+                  scale: isCompactDesktop ? 0.95 : 0.92,
+                  y: isCompactDesktop ? 10 : 14,
+                  rotateY: isCompactDesktop ? 4 : 7,
+                  rotateZ: isCompactDesktop ? -0.35 : -0.6,
                 },
                 {
                   opacity: 1,
-                  scale: 1.04,
+                  scale: 1.01,
                   y: 0,
                   rotateY: 0,
                   rotateZ: 0,
@@ -370,11 +370,11 @@ export function TechStackCarousel() {
                 },
               )
               .to(card, {
-                opacity: 0.26,
-                scale: isCompactDesktop ? 0.88 : 0.82,
-                y: isCompactDesktop ? 18 : 24,
-                rotateY: isCompactDesktop ? -10 : -16,
-                rotateZ: isCompactDesktop ? 0.8 : 1.2,
+                opacity: 0.52,
+                scale: isCompactDesktop ? 0.95 : 0.92,
+                y: isCompactDesktop ? 10 : 14,
+                rotateY: isCompactDesktop ? -4 : -7,
+                rotateZ: isCompactDesktop ? 0.35 : 0.6,
                 ease: "none",
                 duration: 0.48,
               });

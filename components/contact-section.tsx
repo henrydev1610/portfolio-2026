@@ -79,7 +79,6 @@ export function ContactSection() {
       gsap.set(headerItems, {
         opacity: 0,
         y: 28,
-        filter: "blur(12px)",
       });
 
       gsap.set(cards, {
@@ -89,7 +88,6 @@ export function ContactSection() {
       gsap.set(panels, {
         opacity: 0,
         y: 38,
-        filter: "blur(10px)",
       });
 
       gsap
@@ -103,7 +101,6 @@ export function ContactSection() {
         .to(headerItems, {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.88,
           stagger: 0.12,
         })
@@ -122,7 +119,6 @@ export function ContactSection() {
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 0.94,
             stagger: 0.14,
           },
@@ -143,9 +139,9 @@ export function ContactSection() {
       <div className="relative overflow-hidden rounded-[32px] border border-white/7 bg-[linear-gradient(180deg,rgba(10,10,11,0.96),rgba(14,14,15,0.98))] px-5 py-12 shadow-[0_30px_90px_rgba(0,0,0,0.24)] sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_26%),radial-gradient(circle_at_50%_20%,rgba(255,107,53,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.01),transparent_34%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:96px_96px]" />
-        <div className="pointer-events-none absolute left-[-8%] top-[18%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.15),transparent_72%)] blur-[88px]" />
-        <div className="pointer-events-none absolute right-[-6%] bottom-[10%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] blur-[100px]" />
-        <div className="pointer-events-none absolute inset-x-[16%] top-[12%] h-36 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_74%)] blur-[76px]" />
+        <div className="pointer-events-none absolute left-[-6%] top-[18%] h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.11),transparent_72%)] blur-[48px] lg:left-[-8%] lg:h-48 lg:w-48 lg:bg-[radial-gradient(circle,rgba(255,107,53,0.15),transparent_72%)] lg:blur-[88px]" />
+        <div className="pointer-events-none absolute right-[-4%] bottom-[10%] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04),transparent_72%)] blur-[56px] lg:right-[-6%] lg:h-56 lg:w-56 lg:bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] lg:blur-[100px]" />
+        <div className="pointer-events-none absolute inset-x-[20%] top-[12%] h-24 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_74%)] blur-[44px] lg:inset-x-[16%] lg:h-36 lg:bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_74%)] lg:blur-[76px]" />
 
         <div className="contact-header relative z-[1] mx-auto max-w-[860px] text-center">
           <span className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-white/54">
@@ -169,7 +165,7 @@ export function ContactSection() {
               href={href}
               target="_blank"
               rel="noreferrer"
-              className="contact-card group relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-[transform,border-color,box-shadow,background] duration-500 hover:-translate-y-1.5 hover:scale-[1.01] hover:border-primary/28 hover:shadow-[0_30px_80px_rgba(255,107,53,0.14)] sm:p-7 lg:min-h-[320px] lg:p-8"
+              className="contact-card group relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-6 shadow-[0_18px_42px_rgba(0,0,0,0.16)] backdrop-blur-md transition-[transform,border-color,box-shadow,background] duration-500 hover:-translate-y-1 hover:border-primary/28 hover:shadow-[0_24px_56px_rgba(255,107,53,0.12)] sm:p-7 lg:min-h-[320px] lg:p-8 lg:shadow-[0_24px_60px_rgba(0,0,0,0.18)] lg:backdrop-blur-xl lg:hover:-translate-y-1.5 lg:hover:scale-[1.01] lg:hover:shadow-[0_30px_80px_rgba(255,107,53,0.14)]"
             >
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),transparent_38%,rgba(0,0,0,0.14)_100%)] opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100 [box-shadow:inset_0_0_0_1px_rgba(255,107,53,0.18)]" />
@@ -209,7 +205,7 @@ export function ContactSection() {
         </div>
 
         <div className="relative z-[1] mt-10 grid gap-5 lg:mt-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)] lg:gap-6">
-          <div className="contact-panel relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-7 lg:p-8">
+          <div className="contact-panel relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-[0_18px_46px_rgba(0,0,0,0.18)] backdrop-blur-md sm:p-7 lg:p-8 lg:shadow-[0_24px_70px_rgba(0,0,0,0.2)] lg:backdrop-blur-xl">
             <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_36%,rgba(0,0,0,0.18)_100%)]" />
             <div className="pointer-events-none absolute inset-0 rounded-[inherit] [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.04)]" />
             <div className="pointer-events-none absolute right-[-8%] top-[-10%] h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.14),transparent_72%)] blur-3xl" />
@@ -287,7 +283,7 @@ export function ContactSection() {
           </div>
 
           <div className="contact-panel grid gap-5">
-            <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl sm:p-7">
+            <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-6 shadow-[0_18px_46px_rgba(0,0,0,0.18)] backdrop-blur-md sm:p-7 lg:shadow-[0_24px_70px_rgba(0,0,0,0.2)] lg:backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent_36%,rgba(0,0,0,0.18)_100%)]" />
               <div className="pointer-events-none absolute left-[-8%] top-[-12%] h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.13),transparent_72%)] blur-3xl" />
 
@@ -306,7 +302,7 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-2 shadow-[0_24px_70px_rgba(0,0,0,0.2)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.02))] p-2 shadow-[0_18px_46px_rgba(0,0,0,0.18)] backdrop-blur-md lg:shadow-[0_24px_70px_rgba(0,0,0,0.2)] lg:backdrop-blur-xl">
               <div className="pointer-events-none absolute inset-0 rounded-[inherit] [box-shadow:inset_0_0_0_1px_rgba(255,255,255,0.04)]" />
               <div className="overflow-hidden rounded-[24px] border border-white/8">
                 <iframe

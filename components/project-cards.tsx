@@ -92,12 +92,10 @@ export function ProjectCards() {
       gsap.set(badgeRef.current, {
         opacity: 0,
         y: 16,
-        filter: "blur(10px)",
       });
       gsap.set(titleLines, {
         opacity: 0,
         y: 34,
-        filter: "blur(18px)",
       });
       gsap.set(cards, {
         opacity: 0,
@@ -115,7 +113,6 @@ export function ProjectCards() {
         .to(badgeRef.current, {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.72,
         })
         .to(
@@ -123,7 +120,6 @@ export function ProjectCards() {
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 1.02,
             stagger: 0.14,
           },
@@ -142,13 +138,13 @@ export function ProjectCards() {
 
       if (!reduceMotion) {
         gsap.to(cards, {
-          yPercent: (index) => (index === 0 ? -2.5 : index % 2 === 0 ? 2.2 : -1.8),
+          yPercent: (index) => (index === 0 ? -1.2 : index % 2 === 0 ? 1.1 : -0.9),
           ease: "none",
           scrollTrigger: {
             trigger: gridRef.current,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.18,
+            scrub: true,
           },
         });
       }
@@ -248,8 +244,8 @@ export function ProjectCards() {
       <div className="projects-stage relative overflow-hidden rounded-[32px] border border-white/7 bg-[linear-gradient(180deg,rgba(10,10,11,0.96),rgba(14,14,15,0.98))] px-5 py-12 shadow-[0_30px_90px_rgba(0,0,0,0.24)] sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_26%),radial-gradient(circle_at_50%_16%,rgba(255,107,53,0.10),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.01),transparent_34%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:96px_96px]" />
-        <div className="pointer-events-none absolute left-[-8%] top-[16%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.15),transparent_72%)] blur-[88px]" />
-        <div className="pointer-events-none absolute right-[-6%] bottom-[8%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] blur-[100px]" />
+        <div className="pointer-events-none absolute left-[-5%] top-[16%] h-30 w-30 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.1),transparent_72%)] blur-[44px] lg:left-[-8%] lg:h-48 lg:w-48 lg:bg-[radial-gradient(circle,rgba(255,107,53,0.15),transparent_72%)] lg:blur-[88px]" />
+        <div className="pointer-events-none absolute right-[-4%] bottom-[8%] h-36 w-36 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04),transparent_72%)] blur-[50px] lg:right-[-6%] lg:h-56 lg:w-56 lg:bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] lg:blur-[100px]" />
         <div className="pointer-events-none absolute inset-x-[7%] top-10 h-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_72%)] blur-3xl" />
 
         <div
@@ -343,10 +339,11 @@ export function ProjectCards() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      quality={index === 0 ? 82 : 75}
                       sizes={
                         index === 0
-                          ? "(max-width: 768px) 100vw, (max-width: 1280px) 100vw, 60vw"
-                          : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 34vw"
+                          ? "(max-width: 767px) 100vw, (max-width: 1279px) 92vw, 58vw"
+                          : "(max-width: 767px) 100vw, (max-width: 1279px) 92vw, 36vw"
                       }
                       className={`object-cover transition-[transform,filter] duration-700 ${
                         index === 0

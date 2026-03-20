@@ -9,10 +9,10 @@ import { HeaderMenuButton } from "@/components/header-menu-button";
 import { navigationItems } from "@/components/navigation-items";
 
 type StickyFloatingMenuProps = {
-  targetRef: React.RefObject<HTMLElement | null>;
+  targetSelector: string;
 };
 
-export function StickyFloatingMenu({ targetRef }: StickyFloatingMenuProps) {
+export function StickyFloatingMenu({ targetSelector }: StickyFloatingMenuProps) {
   const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
   const shellRef = useRef<HTMLDivElement | null>(null);
@@ -28,7 +28,7 @@ export function StickyFloatingMenu({ targetRef }: StickyFloatingMenuProps) {
   }, []);
 
   useEffect(() => {
-    const target = targetRef.current;
+    const target = document.querySelector<HTMLElement>(targetSelector);
 
     if (!target) {
       return;
@@ -80,7 +80,7 @@ export function StickyFloatingMenu({ targetRef }: StickyFloatingMenuProps) {
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [targetRef]);
+  }, [targetSelector]);
 
   useEffect(() => {
     if (!visible && open) {

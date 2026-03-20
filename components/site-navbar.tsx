@@ -12,6 +12,7 @@ export const SiteNavbar = forwardRef<HTMLElement>(function SiteNavbar(_, ref) {
   return (
     <>
       <header
+        id="site-navbar"
         ref={ref}
         className="nav-float mb-6 flex items-center justify-between px-1 pt-1 sm:mb-8 sm:px-0 sm:pt-0"
       >

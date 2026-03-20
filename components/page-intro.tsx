@@ -31,7 +31,6 @@ export function PageIntro() {
       gsap.set(".intro-word, .intro-caption, .intro-line", {
         opacity: 0,
         y: 16,
-        filter: "blur(10px)",
       });
 
       gsap.set(".intro-line", {
@@ -70,7 +69,6 @@ export function PageIntro() {
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 0.72,
           },
           0.16,
@@ -80,7 +78,6 @@ export function PageIntro() {
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             scaleX: 1,
             duration: 0.56,
           },
@@ -91,7 +88,6 @@ export function PageIntro() {
           {
             opacity: 1,
             y: 0,
-            filter: "blur(0px)",
             duration: 0.52,
           },
           0.34,
@@ -102,7 +98,6 @@ export function PageIntro() {
           {
             opacity: 0,
             y: -10,
-            filter: "blur(12px)",
             duration: 0.42,
             ease: "power2.inOut",
           },

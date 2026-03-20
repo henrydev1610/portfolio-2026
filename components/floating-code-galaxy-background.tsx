@@ -1,7 +1,7 @@
 "use client";
 
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 export const floatingCodeGalaxySnippets = [
   'import React from "react"',
@@ -43,6 +43,17 @@ const snippetGroups = [
 
 export function FloatingCodeGalaxyBackground() {
   const rootRef = useRef<HTMLDivElement | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+    const updateMatch = () => setIsDesktop(mediaQuery.matches);
+
+    updateMatch();
+    mediaQuery.addEventListener("change", updateMatch);
+
+    return () => mediaQuery.removeEventListener("change", updateMatch);
+  }, []);
 
   useLayoutEffect(() => {
     const root = rootRef.current;
@@ -139,20 +150,22 @@ export function FloatingCodeGalaxyBackground() {
       observer?.disconnect();
       context.revert();
     };
-  }, []);
+  }, [isDesktop]);
+
+  const visibleParticles = isDesktop ? particleOffsets : particleOffsets.slice(0, 6);
 
   return (
     <div ref={rootRef} className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_34%),radial-gradient(circle_at_50%_34%,rgba(255,140,84,0.09),transparent_30%),radial-gradient(circle_at_50%_42%,rgba(115,196,255,0.075),transparent_38%),linear-gradient(180deg,rgba(5,5,7,0.94),rgba(7,7,9,0.98))]" />
 
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hidden lg:block">
         <div className="absolute left-[-14%] top-[-10%] h-[38%] w-[42%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.035),transparent_72%)] blur-[120px]" />
         <div className="absolute right-[-12%] top-[2%] h-[44%] w-[38%] rounded-full bg-[radial-gradient(circle,rgba(255,126,78,0.06),transparent_72%)] blur-[118px]" />
         <div className="absolute left-[-10%] bottom-[-12%] h-[40%] w-[44%] rounded-full bg-[radial-gradient(circle,rgba(115,196,255,0.05),transparent_72%)] blur-[124px]" />
         <div className="absolute right-[-10%] bottom-[-14%] h-[42%] w-[42%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.03),transparent_72%)] blur-[124px]" />
       </div>
 
-      <div className="absolute inset-x-[-2%] inset-y-[4%] [perspective:1700px]">
+      {isDesktop ? <div className="absolute inset-x-[-2%] inset-y-[4%] [perspective:1700px]">
         <div
           data-galaxy-plane
           className="absolute left-[-4%] top-[5%] w-[42%] rounded-[36px] border border-white/[0.06] bg-white/[0.02] px-5 py-5 font-mono text-[9px] leading-[2.05] text-white/[0.13] shadow-[0_30px_80px_rgba(0,0,0,0.24)] backdrop-blur-[1.2px] sm:text-[10px]"
@@ -202,9 +215,9 @@ export function FloatingCodeGalaxyBackground() {
             <div key={line}>{line}</div>
           ))}
         </div>
-      </div>
+      </div> : null}
 
-      <div className="absolute inset-y-[6%] left-[2%] right-[2%] [perspective:1900px]">
+      {isDesktop ? <div className="absolute inset-y-[6%] left-[2%] right-[2%] [perspective:1900px]">
         <div
           data-galaxy-cluster
           className="absolute left-[2%] top-[14%] w-[24%] rounded-[28px] border border-white/[0.04] bg-[linear-gradient(180deg,rgba(255,255,255,0.024),rgba(255,255,255,0.008))] px-4 py-4 font-mono text-[8px] leading-[2] text-white/[0.07]"
@@ -254,10 +267,10 @@ export function FloatingCodeGalaxyBackground() {
             <div key={line}>{line}</div>
           ))}
         </div>
-      </div>
+      </div> : null}
 
       <div className="absolute inset-0">
-        {particleOffsets.map((particle, index) => (
+        {visibleParticles.map((particle, index) => (
           <span
             key={`${particle.left}-${particle.top}`}
             data-galaxy-particle
@@ -272,26 +285,26 @@ export function FloatingCodeGalaxyBackground() {
       </div>
 
       <div className="absolute inset-0">
-        <div
+        {isDesktop ? <div
           data-galaxy-halo
           className="absolute left-[16%] top-[14%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(132,201,255,0.09),transparent_72%)] blur-[104px]"
-        />
-        <div
+        /> : null}
+        {isDesktop ? <div
           data-galaxy-halo
           className="absolute right-[16%] top-[28%] h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(255,120,66,0.1),transparent_74%)] blur-[116px]"
-        />
+        /> : null}
         <div
           data-galaxy-halo
-          className="absolute left-1/2 top-[42%] h-80 w-80 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.038),transparent_72%)] blur-[124px]"
+          className="absolute left-1/2 top-[42%] h-52 w-52 -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.038),transparent_72%)] blur-[72px] lg:h-80 lg:w-80 lg:blur-[124px]"
         />
-        <div
+        {isDesktop ? <div
           data-galaxy-halo
           className="absolute left-[28%] bottom-[10%] h-64 w-64 rounded-full bg-[radial-gradient(circle,rgba(255,171,110,0.065),transparent_74%)] blur-[110px]"
-        />
-        <div
+        /> : null}
+        {isDesktop ? <div
           data-galaxy-halo
           className="absolute right-[26%] bottom-[16%] h-60 w-60 rounded-full bg-[radial-gradient(circle,rgba(132,201,255,0.06),transparent_74%)] blur-[104px]"
-        />
+        /> : null}
       </div>
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,transparent_54%,rgba(0,0,0,0.16)_74%,rgba(0,0,0,0.42)_100%)]" />

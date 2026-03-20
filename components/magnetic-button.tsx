@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 type MagneticButtonProps = {
   href: string;
@@ -19,10 +19,34 @@ export function MagneticButton({
   className = "",
 }: MagneticButtonProps) {
   const ref = useRef<HTMLAnchorElement | null>(null);
+  const moveXRef = useRef<((value: number) => gsap.core.Tween) | null>(null);
+  const moveYRef = useRef<((value: number) => gsap.core.Tween) | null>(null);
+
+  useLayoutEffect(() => {
+    const button = ref.current;
+
+    if (!button || !window.matchMedia("(pointer: fine)").matches) {
+      return;
+    }
+
+    moveXRef.current = gsap.quickTo(button, "x", {
+      duration: 0.24,
+      ease: "power3.out",
+    });
+    moveYRef.current = gsap.quickTo(button, "y", {
+      duration: 0.24,
+      ease: "power3.out",
+    });
+
+    return () => {
+      moveXRef.current = null;
+      moveYRef.current = null;
+    };
+  }, []);
 
   const handleMove = (event: React.MouseEvent<HTMLAnchorElement>) => {
     const button = ref.current;
-    if (!button || !window.matchMedia("(pointer: fine)").matches) {
+    if (!button || !moveXRef.current || !moveYRef.current) {
       return;
     }
 
@@ -30,12 +54,8 @@ export function MagneticButton({
     const x = event.clientX - rect.left - rect.width / 2;
     const y = event.clientY - rect.top - rect.height / 2;
 
-    gsap.to(button, {
-      x: x * 0.16,
-      y: y * 0.16,
-      duration: 0.35,
-      ease: "power3.out",
-    });
+    moveXRef.current(x * 0.16);
+    moveYRef.current(y * 0.16);
   };
 
   const handleLeave = () => {
@@ -43,12 +63,8 @@ export function MagneticButton({
       return;
     }
 
-    gsap.to(ref.current, {
-      x: 0,
-      y: 0,
-      duration: 0.45,
-      ease: "elastic.out(1, 0.45)",
-    });
+    moveXRef.current?.(0);
+    moveYRef.current?.(0);
   };
 
   const baseClasses =

@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="pointer-events-none absolute inset-0 z-[1] rounded-[36px] bg-[linear-gradient(180deg,rgba(13,13,13,0.24)_0%,rgba(13,13,13,0.44)_34%,rgba(13,13,13,0.88)_100%)] lg:rounded-[34px]" />
       <div className="pointer-events-none absolute inset-0 z-[2] rounded-[36px] bg-[linear-gradient(180deg,rgba(13,13,13,0.92)_0%,rgba(13,13,13,0.5)_16%,rgba(13,13,13,0.2)_40%,rgba(13,13,13,0.22)_58%,rgba(13,13,13,0.78)_78%,rgba(13,13,13,0.94)_100%)] lg:rounded-[34px] lg:bg-[linear-gradient(90deg,rgba(13,13,13,0.96)_0%,rgba(13,13,13,0.68)_18%,rgba(13,13,13,0.12)_40%,rgba(13,13,13,0.14)_58%,rgba(13,13,13,0.82)_78%,rgba(13,13,13,0.96)_100%)]" />
       <div className="pointer-events-none absolute inset-0 z-[3] rounded-[36px] bg-[radial-gradient(circle_at_50%_14%,rgba(255,255,255,0.16),transparent_20%),linear-gradient(180deg,rgba(13,13,13,0.54)_0%,transparent_24%,transparent_63%,rgba(13,13,13,0.82)_100%)] lg:rounded-[34px]" />
-      <div className="pointer-events-none absolute inset-x-[8%] top-[9%] z-[4] h-[42%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.11),transparent_58%)] blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-[12%] top-[10%] z-[4] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.08),transparent_58%)] blur-2xl lg:inset-x-[8%] lg:top-[9%] lg:h-[42%] lg:bg-[radial-gradient(circle,rgba(255,107,53,0.11),transparent_58%)] lg:blur-3xl" />
 
       <div className="relative z-[5] px-4 pb-5 pt-5 sm:px-5 sm:pb-6 sm:pt-5 lg:px-0 lg:pb-0 lg:pt-0">
         <div className="mt-2 px-2 sm:mt-3 lg:hidden">
@@ -46,8 +46,8 @@ export function HeroSection() {
         </div>
 
         <div className="hero-figure relative order-first mx-auto h-[290px] w-full max-w-[320px] sm:h-[360px] sm:max-w-[390px] md:h-[400px] md:max-w-[420px] lg:order-none lg:h-[500px] lg:max-w-[500px]">
-          <div className="absolute inset-x-[16%] top-[8%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_62%)] blur-3xl" />
-          <div className="absolute inset-x-[20%] bottom-[12%] h-[24%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.2),transparent_70%)] blur-3xl" />
+          <div className="absolute inset-x-[18%] top-[10%] h-[52%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_62%)] blur-2xl lg:inset-x-[16%] lg:top-[8%] lg:h-[70%] lg:bg-[radial-gradient(circle,rgba(255,255,255,0.12),transparent_62%)] lg:blur-3xl" />
+          <div className="absolute inset-x-[24%] bottom-[14%] h-[18%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.14),transparent_70%)] blur-2xl lg:inset-x-[20%] lg:bottom-[12%] lg:h-[24%] lg:bg-[radial-gradient(circle,rgba(255,107,53,0.2),transparent_70%)] lg:blur-3xl" />
         </div>
 
         <div className="hero-right translate-y-8 pt-0 text-center lg:ml-auto lg:max-w-[280px] lg:pt-20 lg:text-right">

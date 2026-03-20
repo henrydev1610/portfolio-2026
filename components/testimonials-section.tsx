@@ -89,7 +89,6 @@ export function TestimonialsSection() {
       gsap.set(headerItems, {
         opacity: 0,
         y: 28,
-        filter: "blur(12px)",
       });
 
       gsap.set(cards, {
@@ -112,7 +111,6 @@ export function TestimonialsSection() {
         .to(headerItems, {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
           duration: 0.85,
           stagger: 0.12,
         })
@@ -189,7 +187,7 @@ export function TestimonialsSection() {
               end: () => `+=${Math.max(computeTrackState().distance, 1)}`,
               scrub: true,
               pin: true,
-              anticipatePin: 1,
+              anticipatePin: 0.5,
               invalidateOnRefresh: true,
             },
           });
@@ -199,15 +197,13 @@ export function TestimonialsSection() {
               card,
               {
                 opacity: index === 0 ? 1 : 0.58,
-                scale: index === 0 ? 1 : 0.95,
-                yPercent: 4,
-                filter: "blur(8px)",
+                scale: index === 0 ? 1 : 0.975,
+                yPercent: 2,
               },
               {
                 opacity: 1,
                 scale: 1,
                 yPercent: 0,
-                filter: "blur(0px)",
                 ease: "power3.out",
                 scrollTrigger: {
                   trigger: card,
@@ -316,16 +312,16 @@ export function TestimonialsSection() {
               },
               end: () => {
                 const refreshedState = computeTrackState();
-                return `+=${refreshedState.distance + window.innerWidth * 0.3}`;
+                return `+=${refreshedState.distance + window.innerWidth * 0.18}`;
               },
-              scrub: 0.9,
+              scrub: true,
               pin: true,
-              anticipatePin: 1,
+              anticipatePin: 0.5,
               invalidateOnRefresh: true,
               snap: {
                 snapTo: snapToStop,
-                duration: { min: 0.16, max: 0.34 },
-                ease: "power3.out",
+                duration: { min: 0.1, max: 0.18 },
+                ease: "power2.out",
               },
             },
           });
@@ -335,15 +331,13 @@ export function TestimonialsSection() {
               card,
               {
                 opacity: index === 0 ? 1 : 0.56,
-                scale: index === 0 ? 1 : 0.94,
-                yPercent: 4,
-                filter: "blur(8px)",
+                scale: index === 0 ? 1 : 0.97,
+                yPercent: 2,
               },
               {
                 opacity: 1,
                 scale: 1,
                 yPercent: 0,
-                filter: "blur(0px)",
                 ease: "power3.out",
                 scrollTrigger: {
                   trigger: card,
@@ -420,9 +414,9 @@ export function TestimonialsSection() {
       <div className="relative overflow-hidden rounded-[32px]  border border-white/7 bg-[linear-gradient(180deg,rgba(10,10,11,0.96),rgba(14,14,15,0.98))] px-5 py-12 shadow-[0_30px_90px_rgba(0,0,0,0.24)] sm:px-8 sm:py-14 lg:px-10 lg:py-20">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03),transparent_26%),radial-gradient(circle_at_50%_16%,rgba(255,107,53,0.10),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.01),transparent_34%)]" />
         <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:96px_96px]" />
-        <div className="pointer-events-none absolute left-[-8%] top-[18%] h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.14),transparent_72%)] blur-[88px]" />
-        <div className="pointer-events-none absolute right-[-6%] bottom-[10%] h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] blur-[100px]" />
-        <div className="pointer-events-none absolute inset-x-[20%] top-[16%] h-32 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_74%)] blur-[72px]" />
+        <div className="pointer-events-none absolute left-[-6%] top-[18%] h-32 w-32 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.11),transparent_72%)] blur-[48px] lg:left-[-8%] lg:h-48 lg:w-48 lg:bg-[radial-gradient(circle,rgba(255,107,53,0.14),transparent_72%)] lg:blur-[88px]" />
+        <div className="pointer-events-none absolute right-[-4%] bottom-[10%] h-40 w-40 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.04),transparent_72%)] blur-[56px] lg:right-[-6%] lg:h-56 lg:w-56 lg:bg-[radial-gradient(circle,rgba(255,255,255,0.05),transparent_72%)] lg:blur-[100px]" />
+        <div className="pointer-events-none absolute inset-x-[24%] top-[16%] h-24 rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06),transparent_74%)] blur-[44px] lg:inset-x-[20%] lg:h-32 lg:bg-[radial-gradient(circle,rgba(255,255,255,0.08),transparent_74%)] lg:blur-[72px]" />
 
         <div ref={pinWrapRef} className="relative">
           <div ref={headerRef} className="relative z-[2] mx-auto max-w-[860px] text-center">
@@ -462,7 +456,7 @@ export function TestimonialsSection() {
                   ref={(node) => {
                     cardRefs.current[index] = node;
                   }}
-                  className={`testimonial-card group relative w-[78vw] max-w-[320px] shrink-0 overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 shadow-[0_24px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-[transform,border-color,box-shadow,filter] duration-500 hover:-translate-y-1 hover:border-primary/25 hover:shadow-[0_30px_80px_rgba(255,107,53,0.14)] sm:p-7 md:w-auto md:max-w-none lg:min-h-[420px] ${
+                  className={`testimonial-card group relative w-[78vw] max-w-[320px] shrink-0 overflow-hidden rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))] p-5 shadow-[0_18px_42px_rgba(0,0,0,0.16)] backdrop-blur-md transition-[transform,border-color,box-shadow,filter] duration-500 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[0_24px_56px_rgba(255,107,53,0.12)] sm:p-7 md:w-auto md:max-w-none lg:min-h-[420px] lg:shadow-[0_24px_60px_rgba(0,0,0,0.18)] lg:backdrop-blur-xl lg:hover:-translate-y-1 lg:hover:shadow-[0_30px_80px_rgba(255,107,53,0.14)] ${
                     index === 0
                       ? "lg:w-[min(56vw,760px)] lg:p-9"
                       : "lg:w-[min(42vw,560px)]"

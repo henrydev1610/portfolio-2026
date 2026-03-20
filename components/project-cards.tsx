@@ -1,68 +1,19 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 
-import andreaImage from "@/app/krug.png";
-import devBrazukaImage from "@/app/dev-brazuca.png";
-import vagasDevImage from "@/app/vagas-dev.png";
+import { AppLink } from "@/components/app-link";
+import { MagneticButton } from "@/components/magnetic-button";
+import { useProjectCardMotion } from "@/components/use-project-card-motion";
+import { projects } from "@/data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Project = {
-  title: string;
-  tag: string;
-  descriptor: string;
-  image: string | StaticImageData;
-  href: string;
-  accent: string;
-};
-
-type CardController = {
-  rotateX: (value: number) => gsap.core.Tween;
-  rotateY: (value: number) => gsap.core.Tween;
-  scale: (value: number) => gsap.core.Tween;
-  imageX: (value: number) => gsap.core.Tween;
-  imageY: (value: number) => gsap.core.Tween;
-  contentY: (value: number) => gsap.core.Tween;
-  glowX: (value: number) => gsap.core.Tween;
-  glowY: (value: number) => gsap.core.Tween;
-  glowOpacity: (value: number) => gsap.core.Tween;
-};
-
-const projects: Project[] = [
-  {
-    title: "Andrea Krug",
-    tag: "landing page",
-    descriptor:
-      'Site oficial de Andrea Krug, palestrante, mentora executiva e autora do livro "Vai Encarar". O site apresenta uma experiencia digital imersiva com design futurista, destacando sua trajetoria profissional, eventos, e promovendo seu trabalho de transformacao pessoal e corporativa.',
-    image: andreaImage,
-    href: "https://andrea-krug-website.vercel.app/",
-    accent: "from-[#f08b64]/50 via-[#ffb58d]/24 to-transparent",
-  },
-  {
-    title: "Dev Brazuka",
-    tag: "Projeto fullstack",
-    descriptor:
-      "Dev Brazuka e uma plataforma completa de blog tecnico desenvolvida para a comunidade de desenvolvedores brasileiros.",
-    image: devBrazukaImage,
-    href: "https://devbrazuka-hub.vercel.app/",
-    accent: "from-white/30 via-white/12 to-transparent",
-  },
-  {
-    title: "Vagas Dev",
-    tag: "Projeto fullstack",
-    descriptor:
-      "DevVagas e uma plataforma de recrutamento focada em desenvolvedores, conectando talentos tech a empresas inovadoras. ",
-    image: vagasDevImage,
-    href: "https://vagas-para-devs-liard.vercel.app/",
-    accent: "from-[#d7e2ff]/26 via-white/10 to-transparent",
-  },
-];
+const featuredProjects = projects.slice(0, 3);
 
 const layoutByIndex = [
   "md:col-span-2 xl:col-span-7 xl:row-span-2",
@@ -76,12 +27,18 @@ export function ProjectCards() {
   const badgeRef = useRef<HTMLSpanElement | null>(null);
   const titleLineRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const gridRef = useRef<HTMLDivElement | null>(null);
-  const cardRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const imageRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const glowRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const controllersRef = useRef<Array<CardController | null>>([]);
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const {
+    activeIndex,
+    setActiveIndex,
+    cardRefs,
+    imageRefs,
+    contentRefs,
+    glowRefs,
+    handlePointerEnter,
+    handlePointerMove,
+    handlePointerLeave,
+    resetCard,
+  } = useProjectCardMotion(featuredProjects.length);
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -148,92 +105,10 @@ export function ProjectCards() {
           },
         });
       }
-
-      cards.forEach((card, index) => {
-        const image = imageRefs.current[index];
-        const content = contentRefs.current[index];
-        const glow = glowRefs.current[index];
-
-        if (!card || !image || !content || !glow) {
-          return;
-        }
-
-        controllersRef.current[index] = {
-          rotateX: gsap.quickTo(card, "rotateX", { duration: 0.45, ease: "power3.out" }),
-          rotateY: gsap.quickTo(card, "rotateY", { duration: 0.45, ease: "power3.out" }),
-          scale: gsap.quickTo(card, "scale", { duration: 0.45, ease: "power3.out" }),
-          imageX: gsap.quickTo(image, "x", { duration: 0.55, ease: "power3.out" }),
-          imageY: gsap.quickTo(image, "y", { duration: 0.55, ease: "power3.out" }),
-          contentY: gsap.quickTo(content, "y", { duration: 0.45, ease: "power3.out" }),
-          glowX: gsap.quickTo(glow, "x", { duration: 0.55, ease: "power3.out" }),
-          glowY: gsap.quickTo(glow, "y", { duration: 0.55, ease: "power3.out" }),
-          glowOpacity: gsap.quickTo(glow, "opacity", { duration: 0.35, ease: "power2.out" }),
-        };
-      });
     }, sectionRef);
 
     return () => context.revert();
   }, []);
-
-  const resetCard = (index: number) => {
-    const controller = controllersRef.current[index];
-    if (!controller) {
-      return;
-    }
-
-    controller.rotateX(0);
-    controller.rotateY(0);
-    controller.scale(1);
-    controller.imageX(0);
-    controller.imageY(0);
-    controller.contentY(0);
-    controller.glowX(0);
-    controller.glowY(0);
-    controller.glowOpacity(0);
-  };
-
-  const handlePointerEnter = (index: number) => {
-    setActiveIndex(index);
-
-    const controller = controllersRef.current[index];
-    if (!controller) {
-      return;
-    }
-
-    controller.scale(1.018);
-    controller.contentY(-6);
-    controller.glowOpacity(0.9);
-  };
-
-  const handlePointerMove = (index: number, event: React.PointerEvent<HTMLAnchorElement>) => {
-    if (!window.matchMedia("(pointer: fine)").matches) {
-      return;
-    }
-
-    const card = cardRefs.current[index];
-    const controller = controllersRef.current[index];
-    if (!card || !controller) {
-      return;
-    }
-
-    const bounds = card.getBoundingClientRect();
-    const relativeX = event.clientX - bounds.left;
-    const relativeY = event.clientY - bounds.top;
-    const deltaX = relativeX / bounds.width - 0.5;
-    const deltaY = relativeY / bounds.height - 0.5;
-
-    controller.rotateX(deltaY * -8);
-    controller.rotateY(deltaX * 10);
-    controller.imageX(deltaX * 22);
-    controller.imageY(deltaY * 18);
-    controller.glowX(deltaX * 34);
-    controller.glowY(deltaY * 28);
-  };
-
-  const handlePointerLeave = (index: number) => {
-    setActiveIndex((current) => (current === index ? null : current));
-    resetCard(index);
-  };
 
   return (
     <section
@@ -291,12 +166,12 @@ export function ProjectCards() {
           ref={gridRef}
           className="projects-grid relative z-[2] grid auto-rows-[minmax(320px,auto)] gap-5 md:grid-cols-2 xl:grid-cols-12"
         >
-          {projects.map((project, index) => {
+          {featuredProjects.map((project, index) => {
             const isActive = activeIndex === index;
             const isDimmed = activeIndex !== null && !isActive;
 
             return (
-              <Link
+              <AppLink
                 href={project.href}
                 key={project.title}
                 ref={(node) => {
@@ -359,7 +234,7 @@ export function ProjectCards() {
 
                   <div className="absolute inset-x-5 top-5 z-[3] flex items-start justify-between">
                     <div className="rounded-full border border-white/10 bg-black/18 px-3 py-1.5 text-[0.68rem] uppercase tracking-[0.24em] text-white/56 backdrop-blur-md">
-                      {project.tag}
+                      {project.category}
                     </div>
                     <div className="font-serif text-[1.9rem] leading-none tracking-[-0.08em] text-white/28">
                       {String(index + 1).padStart(2, "0")}
@@ -382,11 +257,20 @@ export function ProjectCards() {
                         {project.title}
                       </h3>
                       <p className="mt-3 max-w-[40ch] text-sm leading-6 text-white/58 sm:text-[0.95rem]">
-                        {project.descriptor}
+                        {project.description}
                       </p>
 
                       <div className="mt-6 flex items-center justify-between gap-4">
-                        
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.slice(0, 2).map((item) => (
+                            <span
+                              key={item}
+                              className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 text-[0.62rem] uppercase tracking-[0.18em] text-white/42"
+                            >
+                              {item}
+                            </span>
+                          ))}
+                        </div>
 
                         <div
                           className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-[0.72rem] uppercase tracking-[0.2em] transition-all duration-500 ${
@@ -402,9 +286,13 @@ export function ProjectCards() {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </AppLink>
             );
           })}
+        </div>
+
+        <div className="relative z-[2] mt-8 flex justify-center lg:mt-10">
+          <MagneticButton href="/projects" label="Ver mais" variant="ghost" className="w-full justify-center sm:w-auto" />
         </div>
       </div>
     </section>

@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { gsap } from "gsap";
 import { useEffect, useLayoutEffect, useRef } from "react";
 
+import { AppLink } from "@/components/app-link";
 import { HeaderAvailabilityBadge } from "@/components/header-availability-badge";
 import { navigationItems } from "@/components/navigation-items";
 
@@ -125,7 +125,7 @@ export function PremiumSideMenu({ open, onClose }: PremiumSideMenuProps) {
 
           <nav className="mt-8 flex flex-1 flex-col justify-center gap-2.5 sm:mt-10 sm:gap-2" aria-label="Menu lateral">
             {navigationItems.map((item) => (
-              <Link
+              <AppLink
                 key={item.label}
                 href={item.href}
                 onClick={onClose}
@@ -135,7 +135,7 @@ export function PremiumSideMenu({ open, onClose }: PremiumSideMenuProps) {
                   <span className="h-1.5 w-1.5 rounded-full bg-primary/0 transition-colors duration-300 group-hover:bg-primary/80" />
                   {item.label}
                 </span>
-              </Link>
+              </AppLink>
             ))}
           </nav>
         </div>

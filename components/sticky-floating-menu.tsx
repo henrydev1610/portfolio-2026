@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { gsap } from "gsap";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
+import { AppLink } from "@/components/app-link";
 import { HeaderAvailabilityBadge } from "@/components/header-availability-badge";
 import { HeaderMenuButton } from "@/components/header-menu-button";
 import { navigationItems } from "@/components/navigation-items";
@@ -227,14 +227,14 @@ export function StickyFloatingMenu({ targetSelector }: StickyFloatingMenuProps) 
           <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_36%),linear-gradient(180deg,rgba(255,107,53,0.08),transparent_40%)]" />
           <nav className="relative z-[1] flex flex-col gap-1.5" aria-label="Navegação secundária">
             {navigationItems.map((item) => (
-              <Link
+              <AppLink
                 key={item.label}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-[20px] px-4 py-3 text-[0.92rem] font-medium tracking-[-0.02em] text-white/78 transition-[background,color,transform] duration-300 hover:bg-white/[0.05] hover:text-white"
               >
                 {item.label}
-              </Link>
+              </AppLink>
             ))}
           </nav>
         </div>

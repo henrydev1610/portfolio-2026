@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { ArrowUpRight, Github, Instagram, Linkedin, MessageCircle } from "lucide-react";
 
+import { AppLink } from "@/components/app-link";
+
 const quickLinks = [
-  { label: "Home", href: "#top" },
-  { label: "Sobre", href: "#top" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Testemunhos", href: "#testimonials" },
-  { label: "Contato", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Sobre", href: "/about" },
+  { label: "Projetos", href: "/#projects" },
+  { label: "Testemunhos", href: "/#testimonials" },
+  { label: "Contato", href: "/#contact" },
 ] as const;
 
 const socialLinks = [
@@ -42,7 +44,7 @@ export function SiteFooter() {
               </p>
               <nav className="grid gap-3">
                 {quickLinks.map((link) => (
-                  <Link
+                  <AppLink
                     key={link.label}
                     href={link.href}
                     className="group inline-flex w-fit items-center gap-2 text-sm text-white/56 transition-colors duration-300 hover:text-white"
@@ -51,7 +53,7 @@ export function SiteFooter() {
                       {link.label}
                     </span>
                     <span className="h-px w-0 bg-primary/70 transition-all duration-300 group-hover:w-5" />
-                  </Link>
+                  </AppLink>
                 ))}
               </nav>
             </div>

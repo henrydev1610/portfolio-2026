@@ -1,9 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { gsap } from "gsap";
 import { useLayoutEffect, useRef } from "react";
+
+import { AppLink } from "@/components/app-link";
 
 type MagneticButtonProps = {
   href: string;
@@ -75,7 +76,7 @@ export function MagneticButton({
       : "glass-panel text-white/92";
 
   return (
-    <Link
+    <AppLink
       ref={ref}
       href={href}
       className={`${baseClasses} ${variantClasses} ${className}`}
@@ -84,6 +85,6 @@ export function MagneticButton({
     >
       <span>{label}</span>
       <ArrowUpRight className="h-4 w-4" strokeWidth={1.7} />
-    </Link>
+    </AppLink>
   );
 }

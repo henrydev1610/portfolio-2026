@@ -183,6 +183,7 @@ export function TechStackCarousel() {
 
     const context = gsap.context(() => {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const isChrome = document.documentElement.dataset.browser === "chrome";
       const cards = gsap.utils.toArray<HTMLElement>(".tech-stack-card");
       const mobileCards = gsap.utils.toArray<HTMLElement>(".tech-stack-mobile-card");
       const lastCard = cards.at(-1);
@@ -198,7 +199,6 @@ export function TechStackCarousel() {
           gsap.set(mobileTrack, {
             x: 0,
             force3D: true,
-            willChange: "transform",
           });
 
           gsap.set(mobileCards, {
@@ -206,7 +206,6 @@ export function TechStackCarousel() {
             y: 0,
             scale: 1,
             force3D: true,
-            willChange: "transform, opacity",
           });
 
           const mobileTween = gsap.to(mobileTrack, {
@@ -226,7 +225,7 @@ export function TechStackCarousel() {
             },
           });
 
-          if (!reduceMotion) {
+          if (!reduceMotion && !isChrome) {
             mobileCards.forEach((card) => {
               gsap
                 .timeline({
@@ -260,8 +259,6 @@ export function TechStackCarousel() {
                 });
             });
           }
-
-          ScrollTrigger.refresh();
 
           return () => {
             mobileTween.scrollTrigger?.kill();
@@ -303,12 +300,10 @@ export function TechStackCarousel() {
             transformPerspective: 1200,
             transformOrigin: "50% 50%",
             force3D: true,
-            willChange: "transform, opacity",
           });
 
           gsap.set(track, {
             force3D: true,
-            willChange: "transform",
           });
 
           const horizontalTween = gsap.to(track, {
@@ -332,7 +327,6 @@ export function TechStackCarousel() {
 
           if (reduceMotion) {
             gsap.set(cards, { opacity: 1, scale: 1, y: 0, rotateY: 0, rotateZ: 0 });
-            ScrollTrigger.refresh();
             return () => {
               horizontalTween.scrollTrigger?.kill();
               horizontalTween.kill();
@@ -379,8 +373,6 @@ export function TechStackCarousel() {
                 duration: 0.48,
               });
           });
-
-          ScrollTrigger.refresh();
 
           return () => {
             horizontalTween.scrollTrigger?.kill();
@@ -449,13 +441,13 @@ export function TechStackCarousel() {
               className="relative snap-x snap-mandatory overflow-hidden"
             >
               <div
-                ref={mobileTrackRef}
-                className="flex w-max items-stretch gap-3.5 px-[15vw] will-change-transform"
+              ref={mobileTrackRef}
+                className="flex w-max items-stretch gap-3.5 px-[15vw]"
               >
                 {techStackItems.map(({ name, category, Icon, accent }, index) => (
                   <article
                     key={`${name}-mobile`}
-                    className="tech-stack-mobile-card group relative flex h-[172px] w-[68vw] max-w-[240px] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl transition-all duration-300 active:scale-[0.96]"
+                    className="tech-stack-mobile-card group relative flex h-[172px] w-[68vw] max-w-[240px] shrink-0 snap-center flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-md transition-all duration-300 active:scale-[0.96] lg:backdrop-blur-xl"
                     style={{
                       boxShadow: `0 16px 40px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.04), 0 0 0 1px color-mix(in srgb, ${accent} 8%, transparent)`,
                     }}
@@ -496,7 +488,7 @@ export function TechStackCarousel() {
         <div ref={viewportRef} className="relative hidden w-full items-center overflow-hidden md:flex">
           <div
             ref={trackRef}
-            className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:flex lg:w-max lg:min-w-full lg:h-32 lg:items-center lg:gap-6 lg:px-[26vw] lg:will-change-transform"
+            className="grid w-full grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4 lg:flex lg:w-max lg:min-w-full lg:h-32 lg:items-center lg:gap-6 lg:px-[26vw]"
           >
             {techStackItems.map(({ name, Icon, accent }) => (
               <article

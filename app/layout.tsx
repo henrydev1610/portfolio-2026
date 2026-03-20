@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 
+import { BrowserPerformanceFlags } from "@/components/browser-performance-flags";
 import { GlobalCursor } from "@/components/global-cursor";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${archivo.variable} min-h-screen bg-background font-sans text-white antialiased`}>
+        <BrowserPerformanceFlags />
         <GlobalCursor />
         <div className="flex min-h-screen flex-col">
           <div className="flex-1">{children}</div>

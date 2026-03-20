@@ -175,7 +175,7 @@ export function GlobalCursor() {
   return (
     <div
       ref={cursorRef}
-      className="pointer-events-none fixed left-0 top-0 z-[120] hidden h-24 w-24 -translate-x-1/2 -translate-y-1/2 scale-[0.82] items-center justify-center rounded-full border border-white/16 bg-white/[0.06] opacity-0 backdrop-blur-md md:flex"
+      className="global-cursor-shell pointer-events-none fixed left-0 top-0 z-[120] hidden h-24 w-24 -translate-x-1/2 -translate-y-1/2 scale-[0.82] items-center justify-center rounded-full border border-white/16 bg-white/[0.06] opacity-0 backdrop-blur-md md:flex"
       aria-hidden="true"
     >
       <svg

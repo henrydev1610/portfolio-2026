@@ -31,6 +31,8 @@ export function StatementVideoShowcase() {
     const context = gsap.context(() => {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const isCompact = window.matchMedia("(max-width: 1024px)").matches;
+      const isChrome = document.documentElement.dataset.browser === "chrome";
+      const shouldReduceScene = reduceMotion || (isChrome && isCompact);
       if (!stage || !cursor || !launchButton || !wireframeCard || !motionCard || !refineCard) {
         return;
       }
@@ -120,7 +122,7 @@ export function StatementVideoShowcase() {
         transformOrigin: "50% 50%",
       });
 
-      if (reduceMotion) {
+      if (shouldReduceScene) {
         gsap.set(".build-grid line, .build-grid .col-guide", { opacity: 0.1 });
         gsap.set(
           [

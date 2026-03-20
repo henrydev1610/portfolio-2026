@@ -168,7 +168,6 @@ export function TestimonialsSection() {
           gsap.set(rail, {
             x: initialState.startX,
             force3D: true,
-            willChange: "transform",
           });
 
           const horizontalTween = gsap.to(rail, {

@@ -176,7 +176,7 @@ export function ProjectsPage() {
                 </div>
 
                 <p className="projects-page-copy mx-auto mt-6 max-w-[40rem] text-[0.98rem] leading-7 text-white/58 sm:text-[1.02rem] lg:mx-0 lg:text-[1.06rem]">
-                  Uma seleção de produtos, interfaces e aplicações desenvolvidas com diferentes stacks, linguagens e objetivos, sempre mantendo direção visual forte e fluidez de uso.
+                  Uma seleção de produtos, interfaces e aplicações desenvolvidas com diferentes tecnologias, linguagens e objetivos, sempre mantendo direção visual forte e fluidez de uso.
                 </p>
               </div>
 
@@ -191,7 +191,7 @@ export function ProjectsPage() {
                       </div>
                       <div>
                         <p className="text-[0.68rem] uppercase tracking-[0.2em] text-white/38">Curadoria</p>
-                        <p className="mt-1 text-sm text-white/74">Projetos com múltiplas stacks e objetivos</p>
+                        <p className="mt-1 text-sm text-white/74">Projetos com diferentes tecnologias e objetivos.</p>
                       </div>
                     </div>
 

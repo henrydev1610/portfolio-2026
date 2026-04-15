@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRight, Instagram, Linkedin, Mail, MapPin, MessageCircle } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
+import { type FormEvent, useLayoutEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,23 +19,23 @@ type ContactItem = {
 const contactItems: ContactItem[] = [
   {
     name: "WhatsApp",
-    description: "Conversa direta para projetos, propostas e alinhamentos rapidos.",
+    description: "Conversa direta para projetos, propostas e alinhamentos rápidos.",
     cta: "Abrir conversa",
-    href: "https://wa.me/5500000000000",
+    href: "https://wa.me/5511988412232?text=Ol%C3%A1%2C%20Henry.%20Gostaria%20de%20saber%20mais%20sobre%20desenvolvimento%20de%20sites%20e%20solu%C3%A7%C3%B5es%20web.",
     Icon: MessageCircle,
   },
   {
     name: "LinkedIn",
-    description: "Conexao profissional para networking, oportunidades e presenca estrategica.",
+    description: "Conexão profissional para networking, oportunidades e presença estratégica.",
     cta: "Ver perfil",
-    href: "https://www.linkedin.com/in/seu-perfil",
+    href: "https://www.linkedin.com/in/antoniorangelmarq/",
     Icon: Linkedin,
   },
   {
     name: "Instagram",
-    description: "Canal visual para acompanhar minha linguagem criativa, referencias e bastidores.",
+    description: "Canal visual para acompanhar minha linguagem criativa, referências e bastidores.",
     cta: "Acompanhar feed",
-    href: "https://www.instagram.com/seu-perfil/",
+    href: "https://www.instagram.com/ohenrybenjamin/",
     Icon: Instagram,
   },
 ];
@@ -51,7 +51,7 @@ const contactFields = [
     label: "E-mail",
     name: "email",
     type: "email",
-    placeholder: "voce@projeto.com",
+    placeholder: "seu@email.com",
   },
   {
     label: "Assunto",
@@ -63,6 +63,12 @@ const contactFields = [
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
 
   useLayoutEffect(() => {
     const section = sectionRef.current;
@@ -129,6 +135,56 @@ export function ContactSection() {
     return () => context.revert();
   }, []);
 
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
+    const formData = new FormData(event.currentTarget);
+
+    setIsSubmitting(true);
+    setFormStatus(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: String(formData.get("name") ?? ""),
+          email: String(formData.get("email") ?? ""),
+          subject: String(formData.get("subject") ?? ""),
+          message: String(formData.get("message") ?? ""),
+        }),
+      });
+
+      const data = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(data.message ?? "Não foi possível enviar sua mensagem.");
+      }
+
+      formRef.current?.reset();
+      setFormStatus({
+        type: "success",
+        message: data.message ?? "Mensagem enviada com sucesso.",
+      });
+    } catch (error) {
+      setFormStatus({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Não foi possível enviar sua mensagem agora.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -151,10 +207,10 @@ export function ContactSection() {
             id="contact-title"
             className="mx-auto max-w-[12ch] text-[clamp(2.35rem,5vw,5rem)] leading-[0.93] font-medium tracking-[-0.06em] text-white"
           >
-            Vamos construir algo memoravel juntos.
+            Vamos construir algo memorável juntos.
           </h2>
           <p className="mx-auto mt-5 max-w-[760px] text-[0.98rem] leading-7 text-white/52 sm:text-[1.02rem]">
-            Estou disponivel para projetos, colaboracoes e experiencias digitais com direcao visual, performance e acabamento premium.
+            Estou disponível para projetos, colaborações e experiências digitais com direção visual, performance e acabamento premium.
           </p>
         </div>
 
@@ -220,12 +276,12 @@ export function ContactSection() {
                     Envie sua mensagem
                   </p>
                   <p className="mt-1 text-sm text-white/50">
-                    Estrutura pronta para integrar com API route ou serviço de e-mail.
+                    Estrutura pronta para integração com rota de API ou serviço de e-mail.
                   </p>
                 </div>
               </div>
 
-              <form className="grid gap-4" action="#" method="post">
+              <form ref={formRef} className="grid gap-4" onSubmit={handleSubmit}>
                 <div className="grid gap-4 md:grid-cols-2">
                   {contactFields.slice(0, 2).map((field) => (
                     <label key={field.name} className="block">
@@ -235,6 +291,7 @@ export function ContactSection() {
                       <input
                         name={field.name}
                         type={field.type}
+                        required
                         placeholder={field.placeholder}
                         className="w-full rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3.5 text-sm text-white outline-none transition-[border-color,box-shadow,background] duration-300 placeholder:text-white/28 focus:border-primary/28 focus:bg-white/[0.05] focus:shadow-[0_0_0_1px_rgba(255,107,53,0.22),0_0_28px_rgba(255,107,53,0.08)]"
                       />
@@ -249,6 +306,7 @@ export function ContactSection() {
                   <input
                     name={contactFields[2].name}
                     type={contactFields[2].type}
+                    required
                     placeholder={contactFields[2].placeholder}
                     className="w-full rounded-[22px] border border-white/10 bg-white/[0.035] px-4 py-3.5 text-sm text-white outline-none transition-[border-color,box-shadow,background] duration-300 placeholder:text-white/28 focus:border-primary/28 focus:bg-white/[0.05] focus:shadow-[0_0_0_1px_rgba(255,107,53,0.22),0_0_28px_rgba(255,107,53,0.08)]"
                   />
@@ -261,20 +319,35 @@ export function ContactSection() {
                   <textarea
                     name="message"
                     rows={6}
+                    required
                     placeholder="Descreva o projeto, objetivo ou contexto da oportunidade."
                     className="w-full resize-none rounded-[24px] border border-white/10 bg-white/[0.035] px-4 py-4 text-sm leading-7 text-white outline-none transition-[border-color,box-shadow,background] duration-300 placeholder:text-white/28 focus:border-primary/28 focus:bg-white/[0.05] focus:shadow-[0_0_0_1px_rgba(255,107,53,0.22),0_0_28px_rgba(255,107,53,0.08)]"
                   />
                 </label>
 
+                {formStatus ? (
+                  <p
+                    aria-live="polite"
+                    className={`rounded-[18px] border px-4 py-3 text-sm leading-6 ${
+                      formStatus.type === "success"
+                        ? "border-emerald-400/20 bg-emerald-400/[0.08] text-emerald-100/84"
+                        : "border-primary/24 bg-primary/[0.08] text-white/72"
+                    }`}
+                  >
+                    {formStatus.message}
+                  </p>
+                ) : null}
+
                 <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between">
                   <p className="max-w-[32ch] text-sm leading-6 text-white/42">
-                    Integração de envio pode ser conectada depois com endpoint do Next.js ou serviço externo.
+                    Sua mensagem será enviada diretamente para henrybenjamin.dev@gmail.com.
                   </p>
                   <button
                     type="submit"
-                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-5 py-3 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-white transition-[transform,border-color,box-shadow,background] duration-300 hover:-translate-y-0.5 hover:border-primary/24 hover:bg-white/[0.07] hover:shadow-[0_18px_34px_rgba(255,107,53,0.12)]"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.05] px-5 py-3 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-white transition-[transform,border-color,box-shadow,background,opacity] duration-300 hover:-translate-y-0.5 hover:border-primary/24 hover:bg-white/[0.07] hover:shadow-[0_18px_34px_rgba(255,107,53,0.12)] disabled:pointer-events-none disabled:opacity-55"
                   >
-                    Enviar mensagem
+                    {isSubmitting ? "Enviando..." : "Enviar mensagem"}
                     <ArrowUpRight className="h-4 w-4" strokeWidth={1.8} />
                   </button>
                 </div>

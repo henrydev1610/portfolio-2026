@@ -40,7 +40,7 @@ export function HeroSection() {
               Sistemas visuais autorais
             </div>
             <p className="balanced-text mx-auto max-w-[11ch] text-[clamp(2rem,9vw,2.7rem)] leading-[0.98] font-medium tracking-[-0.03em] text-white lg:mx-0">
-              Engenheiro Full Stack &amp; UI criando experiências web premium
+              Engenheiro de software e UI criando experiências web premium
             </p>
           </div>
         </div>

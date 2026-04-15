@@ -21,7 +21,7 @@ const services: Array<{
   Icon: typeof LayoutPanelTop;
 }> = [
   {
-    title: "Landing Pages",
+    title: "Páginas de venda",
     description:
       "Criação de páginas modernas e altamente persuasivas focadas em conversão e performance.",
     tag: "Alta conversão",
@@ -29,7 +29,7 @@ const services: Array<{
     Icon: LayoutPanelTop,
   },
   {
-    title: "Páginas de Lançamento",
+    title: "Páginas de lançamento",
     description:
       "Estruturas completas para lançamentos digitais, infoprodutos e serviços escaláveis.",
     tag: "Escala",
@@ -45,7 +45,7 @@ const services: Array<{
     Icon: Cpu,
   },
   {
-    title: "Gestão de Tráfego Pago",
+    title: "Gestão de tráfego pago",
     description:
       "Criação e otimização de campanhas focadas em geração de leads e crescimento de receita.",
     tag: "Performance",
@@ -128,7 +128,7 @@ export function ServicesSection() {
             id="services-title"
             className="mx-auto max-w-250 text-[clamp(2.2rem,4.7vw,4.9rem)] leading-[0.95] font-medium tracking-[-0.06em] text-white"
           >
-            Soluções digitais para posicionar, automatizar e escalar negócios
+            Soluções digitais para posicionar, automatizar e escalar negócios.
           </h2>
           <p className="mx-auto mt-5 max-w-[650px] text-[0.98rem] leading-7 text-white/52 sm:text-[1.02rem]">
             Projetos pensados para gerar resultado real, com foco em conversão,

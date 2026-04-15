@@ -18,18 +18,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const approachItems = [
   {
-    title: "Design First",
-    description: "Interfaces com direção de arte, hierarquia clara e leitura instantânea em qualquer viewport.",
+    title: "Design em primeiro lugar",
+    description: "Interfaces com direção de arte, hierarquia clara e leitura instantânea em qualquer tamanho de tela.",
     Icon: Sparkles,
   },
   {
-    title: "Performance Driven",
-    description: "Arquitetura de front-end orientada a fluidez, rendering consistente e percepção premium.",
+    title: "Orientado por performance",
+    description: "Arquitetura de front-end orientada a fluidez, renderização consistente e percepção premium.",
     Icon: Cpu,
   },
   {
-    title: "Experiência do Usuário",
-    description: "Microinterações, motion systems e cadência visual pensadas para transmitir valor real.",
+    title: "Experiência do usuário",
+    description: "Microinterações, sistemas de movimento e cadência visual pensados para transmitir valor real.",
     Icon: Compass,
   },
   {
@@ -47,12 +47,12 @@ const journeyItems = [
   },
   {
     year: "Evolução",
-    title: "Full stack com foco em produto",
-    description: "Passei a construir experiências completas, do front-end premium à lógica de negócio e integração.",
+    title: "Engenharia completa com foco em produto",
+    description: "Passei a construir experiências completas, do front-end premium à lógica de negócios e integração.",
   },
   {
     year: "Refino",
-    title: "Performance, motion e direção visual",
+    title: "Performance, movimento e direção visual",
     description: "Aprofundei o trabalho em animações fluidas, ergonomia visual e acabamento de alto nível.",
   },
   {
@@ -228,10 +228,10 @@ export function AboutPage() {
                         Minha abordagem
                       </p>
                       <p className="mt-4 text-[1.45rem] leading-[1.05] font-medium tracking-[-0.04em] text-white sm:text-[1.7rem]">
-                        UI/UX, engenharia full stack e performance como uma mesma linguagem.
+                        UI/UX, engenharia completa e performance como uma única linguagem.
                       </p>
                       <p className="mt-4 text-[0.95rem] leading-7 text-white/56">
-                        Meu trabalho une estratégia visual, implementação cuidadosa e acabamento técnico para transformar ideias em produtos que parecem sofisticados, rápidos e confiáveis.
+                        Meu trabalho une estratégia visual, implementação cuidadosa e acabamento técnico para transformar ideias em produtos sofisticados, rápidos e confiáveis.
                       </p>
 
                       <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -267,7 +267,7 @@ export function AboutPage() {
                   Metodologia
                 </span>
                 <h2 className="mt-5 text-[clamp(2.2rem,5vw,4.6rem)] leading-[0.93] font-medium tracking-[-0.06em] text-white">
-                  Minha abordagem para construir experiências premium
+                  Minha abordagem para construir experiências premium.
                 </h2>
                 <p className="mx-auto mt-5 max-w-[720px] text-[0.98rem] leading-7 text-white/52 sm:text-[1.02rem]">
                   Cada projeto nasce de uma combinação entre direção visual, percepção de performance e engenharia consistente para entregar valor além da estética.

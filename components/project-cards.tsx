@@ -157,8 +157,8 @@ export function ProjectCards() {
 
           <div className="max-w-[38rem] rounded-[28px] border mb-8 border-white/8 bg-white/[0.025] p-5 backdrop-blur-sm">
             <p className="text-sm leading-6 text-white/56 sm:text-[0.95rem]">
-              Cada projeto agora entra como uma peça em direção de arte: foco hierarquico, profundidade controlada
-              que valoriza o produto em vez de apenas decorar a interface.
+              Cada projeto entra como uma peça de direção de arte: foco hierárquico e profundidade controlada
+              que valorizam o produto em vez de apenas decorar a interface.
             </p>
           </div>
         </div>
@@ -279,7 +279,7 @@ export function ProjectCards() {
                               : "border-white/10 bg-black/18 text-white/58"
                           }`}
                         >
-                          Ver Site
+                          Ver site
                           <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={1.8} />
                         </div>
                       </div>

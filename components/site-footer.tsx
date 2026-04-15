@@ -4,17 +4,21 @@ import { ArrowUpRight, Github, Instagram, Linkedin, MessageCircle } from "lucide
 import { AppLink } from "@/components/app-link";
 
 const quickLinks = [
-  { label: "Home", href: "/" },
+  { label: "Início", href: "/" },
   { label: "Sobre", href: "/about" },
   { label: "Projetos", href: "/#projects" },
-  { label: "Testemunhos", href: "/#testimonials" },
+  { label: "Depoimentos", href: "/#testimonials" },
   { label: "Contato", href: "/#contact" },
 ] as const;
 
 const socialLinks = [
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/seu-perfil", Icon: Linkedin },
-  { label: "Instagram", href: "https://www.instagram.com/seu-perfil/", Icon: Instagram },
-  { label: "WhatsApp", href: "https://wa.me/5500000000000", Icon: MessageCircle },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/antoniorangelmarq/", Icon: Linkedin },
+  { label: "Instagram", href: "https://www.instagram.com/ohenrybenjamin/", Icon: Instagram },
+  {
+    label: "WhatsApp",
+    href: "https://wa.me/5511988412232?text=Ol%C3%A1%2C%20Henry.%20Gostaria%20de%20saber%20mais%20sobre%20desenvolvimento%20de%20sites%20e%20solu%C3%A7%C3%B5es%20web.",
+    Icon: MessageCircle,
+  },
   { label: "GitHub", href: "https://github.com/seu-usuario", Icon: Github },
 ] as const;
 
@@ -34,13 +38,13 @@ export function SiteFooter() {
                 Henry Dev
               </p>
               <p className="mt-4 max-w-[28ch] text-[1rem] leading-7 text-white/54 sm:text-[1.04rem]">
-                Produtos digitais premium, motion systems e interfaces com direcao visual, performance e acabamento high-end.
+                Produtos digitais premium, sistemas de movimento e interfaces com direção visual, performance e acabamento de alto padrão.
               </p>
             </div>
 
             <div>
               <p className="mb-4 text-[0.7rem] uppercase tracking-[0.22em] text-white/38">
-                Navegacao
+                Navegação
               </p>
               <nav className="grid gap-3">
                 {quickLinks.map((link) => (
@@ -87,7 +91,7 @@ export function SiteFooter() {
           <div className="mt-10 flex flex-col gap-4 border-t border-white/8 pt-6 text-sm text-white/36 sm:flex-row sm:items-center sm:justify-between">
             <p>{currentYear} Henry Dev. Todos os direitos reservados.</p>
             <p className="max-w-[32ch] text-white/32 sm:text-right">
-              Crafted with intention, design and performance.
+              Criado com intenção, design e performance.
             </p>
           </div>
         </div>

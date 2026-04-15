@@ -1,4 +1,4 @@
-const partners = ["Front-end", "Dev Criativo", "GSAP", "Next.js", "Sistemas UI", "Projetos Premium"];
+const partners = ["Front-end", "Dev criativo", "GSAP", "Next.js", "Sistemas de UI", "Projetos premium"];
 
 export function PartnerMarquee() {
   return (

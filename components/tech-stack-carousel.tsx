@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 type TechStackItem = {
   name: string;
   tagline: string;
-  category: "Frontend" | "Backend";
+  category: "Front-end" | "Back-end";
   accent: string;
   Icon: () => React.JSX.Element;
 };
@@ -146,19 +146,19 @@ function ElementorIcon() {
 }
 
 const techStackItems: TechStackItem[] = [
-  { name: "Java", tagline: "Back-end foundations", category: "Backend", accent: "#F25F3A", Icon: JavaIcon },
-  { name: "Spring Boot", tagline: "API architecture", category: "Backend", accent: "#7CCF5A", Icon: SpringIcon },
-  { name: "PostgreSQL", tagline: "Relational data", category: "Backend", accent: "#75B7FF", Icon: PostgresIcon },
-  { name: "JavaScript", tagline: "Interface logic", category: "Frontend", accent: "#FFD43B", Icon: JavaScriptIcon },
-  { name: "TypeScript", tagline: "Typed systems", category: "Frontend", accent: "#5EA8FF", Icon: TypeScriptIcon },
-  { name: "Node.js", tagline: "Runtime & services", category: "Backend", accent: "#8FE36A", Icon: NodeIcon },
-  { name: "React.js", tagline: "Component systems", category: "Frontend", accent: "#7BE7FF", Icon: ReactIcon },
-  { name: "Next.js", tagline: "App Router experiences", category: "Frontend", accent: "#FFFFFF", Icon: NextIcon },
-  { name: "Tailwind CSS", tagline: "Design velocity", category: "Frontend", accent: "#7CF0F7", Icon: TailwindIcon },
-  { name: "React Native", tagline: "Cross-platform apps", category: "Frontend", accent: "#9AF2FF", Icon: ReactNativeIcon },
-  { name: "AWS", tagline: "Cloud delivery", category: "Backend", accent: "#FFB34F", Icon: AwsIcon },
-  { name: "WordPress", tagline: "Editorial platforms", category: "Frontend", accent: "#9DB4FF", Icon: WordpressIcon },
-  { name: "Elementor", tagline: "Landing page systems", category: "Frontend", accent: "#FF5A8A", Icon: ElementorIcon },
+  { name: "Java", tagline: "Bases de back-end", category: "Back-end", accent: "#F25F3A", Icon: JavaIcon },
+  { name: "Spring Boot", tagline: "Arquitetura de APIs", category: "Back-end", accent: "#7CCF5A", Icon: SpringIcon },
+  { name: "PostgreSQL", tagline: "Dados relacionais", category: "Back-end", accent: "#75B7FF", Icon: PostgresIcon },
+  { name: "JavaScript", tagline: "Lógica de interface", category: "Front-end", accent: "#FFD43B", Icon: JavaScriptIcon },
+  { name: "TypeScript", tagline: "Sistemas tipados", category: "Front-end", accent: "#5EA8FF", Icon: TypeScriptIcon },
+  { name: "Node.js", tagline: "Runtime e serviços", category: "Back-end", accent: "#8FE36A", Icon: NodeIcon },
+  { name: "React.js", tagline: "Sistemas de componentes", category: "Front-end", accent: "#7BE7FF", Icon: ReactIcon },
+  { name: "Next.js", tagline: "Experiências com App Router", category: "Front-end", accent: "#FFFFFF", Icon: NextIcon },
+  { name: "Tailwind CSS", tagline: "Velocidade de design", category: "Front-end", accent: "#7CF0F7", Icon: TailwindIcon },
+  { name: "React Native", tagline: "Apps multiplataforma", category: "Front-end", accent: "#9AF2FF", Icon: ReactNativeIcon },
+  { name: "AWS", tagline: "Entrega em nuvem", category: "Back-end", accent: "#FFB34F", Icon: AwsIcon },
+  { name: "WordPress", tagline: "Plataformas editoriais", category: "Front-end", accent: "#9DB4FF", Icon: WordpressIcon },
+  { name: "Elementor", tagline: "Sistemas para landing pages", category: "Front-end", accent: "#FF5A8A", Icon: ElementorIcon },
 ];
 
 export function TechStackCarousel() {
@@ -410,7 +410,7 @@ export function TechStackCarousel() {
       <div className="relative z-[5] flex flex-col justify-center px-4 py-12 sm:px-6 lg:min-h-[100svh] lg:px-8">
         <div className="mx-auto mb-10 hidden w-full max-w-[1100px] flex-col items-center text-center md:flex sm:mb-12 lg:mb-14">
           <span className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-white/54">
-            Stacks
+            Tecnologias
           </span>
           <h2
             id="tech-stack-title"
@@ -427,7 +427,7 @@ export function TechStackCarousel() {
 
             <div className="relative z-[2] mx-auto mb-8 flex w-full max-w-[22rem] flex-col items-center text-center">
               <span className="mb-4 inline-flex items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-white/54">
-                Stacks
+                Tecnologias
               </span>
               <h2
                 className="w-full text-[clamp(2.1rem,8.2vw,3.15rem)] leading-[0.96] font-medium tracking-[-0.05em] text-white"

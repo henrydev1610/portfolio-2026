@@ -15,7 +15,8 @@ const archivo = Archivo({
 
 export const metadata: Metadata = {
   title: "Henry Dev | Portfólio 2026",
-  description: "Portifólio Atualizado",
+  description:
+    "Portfólio atualizado de Henry Dev, desenvolvedor de software especializado em experiências digitais premium.",
 };
 
 export default function RootLayout({

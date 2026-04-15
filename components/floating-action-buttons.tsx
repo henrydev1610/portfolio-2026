@@ -129,7 +129,7 @@ export function FloatingActionButtons() {
         <button
           ref={topRef}
           type="button"
-          aria-label="Voltar para a hero"
+          aria-label="Voltar para a seção principal"
           className="glass-panel flex h-14 w-14 items-center justify-center rounded-[20px] text-white/90 transition-colors duration-300 hover:text-white sm:h-16 sm:w-16 sm:rounded-[24px] md:h-20 md:w-20 md:rounded-[28px]"
           onClick={handleScrollToHero}
           onMouseEnter={() => topRef.current && animateButton(topRef.current, true)}
@@ -141,7 +141,7 @@ export function FloatingActionButtons() {
       <button
         ref={bottomRef}
         type="button"
-        aria-label="Recarregar a pagina"
+        aria-label="Recarregar a página"
         className="glass-panel flex h-14 w-14 items-center justify-center rounded-[20px] text-white/90 transition-colors duration-300 hover:text-white sm:h-16 sm:w-16 sm:rounded-[24px] md:h-20 md:w-20 md:rounded-[28px]"
         onClick={handleReload}
         onMouseEnter={() => {

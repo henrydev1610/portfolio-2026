@@ -84,13 +84,13 @@ function TailwindIcon() {
 }
 
 const techItems: TechItem[] = [
-  { name: "React.js", tagline: "Component systems", accent: "#7BE7FF", Icon: ReactIcon },
-  { name: "Node.js", tagline: "Runtime & APIs", accent: "#8FE36A", Icon: NodeIcon },
-  { name: "React Native", tagline: "Cross-platform apps", accent: "#9AF2FF", Icon: ReactNativeIcon },
-  { name: "WordPress", tagline: "Editorial platforms", accent: "#9DB4FF", Icon: WordpressIcon },
-  { name: "Next.js", tagline: "App Router experiences", accent: "#FFFFFF", Icon: NextIcon },
-  { name: "TypeScript", tagline: "Typed architecture", accent: "#5EA8FF", Icon: TypeScriptIcon },
-  { name: "Tailwind CSS", tagline: "Design velocity", accent: "#7CF0F7", Icon: TailwindIcon },
+  { name: "React.js", tagline: "Sistemas de componentes", accent: "#7BE7FF", Icon: ReactIcon },
+  { name: "Node.js", tagline: "Runtime e APIs", accent: "#8FE36A", Icon: NodeIcon },
+  { name: "React Native", tagline: "Apps multiplataforma", accent: "#9AF2FF", Icon: ReactNativeIcon },
+  { name: "WordPress", tagline: "Plataformas editoriais", accent: "#9DB4FF", Icon: WordpressIcon },
+  { name: "Next.js", tagline: "Experiências com App Router", accent: "#FFFFFF", Icon: NextIcon },
+  { name: "TypeScript", tagline: "Arquitetura tipada", accent: "#5EA8FF", Icon: TypeScriptIcon },
+  { name: "Tailwind CSS", tagline: "Velocidade de design", accent: "#7CF0F7", Icon: TailwindIcon },
 ];
 
 export function TechCarouselSection() {
@@ -194,16 +194,16 @@ export function TechCarouselSection() {
 
       <div className="relative z-[5] mb-8 flex max-w-[560px] flex-col gap-4 sm:mb-10 lg:mb-12">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-white/58">
-          Technology stack
+          Tecnologias principais
         </span>
         <h2
           id="tech-carousel-title"
           className="max-w-[10ch] text-[clamp(2.4rem,5vw,5rem)] leading-[0.92] font-medium tracking-[-0.06em] text-white"
         >
-          Ferramental para experiências de produto high-end
+          Ferramental para experiências de produto de alto padrão
         </h2>
         <p className="max-w-[48ch] text-sm leading-7 text-white/50 sm:text-[0.98rem]">
-          Uma travessia horizontal pelas tecnologias que sustentam interfaces premium, motion systems e produtos digitais com acabamento de estúdio.
+          Uma travessia horizontal pelas tecnologias que sustentam interfaces premium, sistemas de movimento e produtos digitais com acabamento de estúdio.
         </p>
       </div>
 

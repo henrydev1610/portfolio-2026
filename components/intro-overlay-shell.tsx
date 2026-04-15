@@ -21,7 +21,7 @@ export const IntroOverlayShell = forwardRef<HTMLDivElement>(function IntroOverla
         </div>
         <div className="intro-line mt-4 h-px w-[min(42vw,240px)] bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.38),transparent)]" />
         <div className="intro-caption mt-5 text-[0.72rem] font-medium tracking-[0.32em] text-white/52 uppercase">
-          Full Stack Developer
+          Desenvolvedor de software
         </div>
       </div>
     </div>

@@ -21,37 +21,37 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "O projeto elevou completamente a percepcao da marca. O resultado ficou premium, fluido e muito acima do que imaginavamos.",
+      "O projeto elevou completamente a percepção da marca. O resultado ficou premium, fluido e muito acima do que imaginávamos.",
     name: "Andrea Krug",
     role: "Palestrante e Mentora Executiva",
-    context: "Brand Experience / Site Oficial",
+    context: "Experiência de marca / Site oficial",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&q=80",
   },
   {
     quote:
-      "A experiencia uniu performance, design e clareza estrategica. O produto final transmitiu muito mais valor em cada ponto de contato.",
+      "A experiência uniu performance, design e clareza estratégica. O produto final transmitiu muito mais valor em cada ponto de contato.",
     name: "Cliente Projeto Digital",
-    role: "Founder / Business Owner",
-    context: "Produto Digital / Growth",
+    role: "Fundador / Empresário",
+    context: "Produto digital / Crescimento",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=240&q=80",
   },
   {
     quote:
-      "Cada detalhe foi pensado com direcao de arte, usabilidade e impacto visual. O resultado ficou memoravel do inicio ao fim.",
+      "Cada detalhe foi pensado com direção de arte, usabilidade e impacto visual. O resultado ficou memorável do início ao fim.",
     name: "Parceiro de Produto",
-    role: "Creative / Product Lead",
-    context: "Interface System / Product Vision",
+    role: "Criativo / Líder de produto",
+    context: "Sistema de interface / Visão de produto",
     avatar:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&q=80",
   },
   {
     quote:
-      "Nao foi apenas design bonito. Houve intencao, narrativa visual e uma entrega muito acima do padrao esperado.",
+      "Não foi apenas design bonito. Houve intenção, narrativa visual e uma entrega muito acima do padrão esperado.",
     name: "Cliente Premium",
-    role: "Brand / Digital Experience",
-    context: "High-End Launch / Experience",
+    role: "Marca / Experiência digital",
+    context: "Lançamento premium / Experiência",
     avatar:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=240&q=80",
   },
@@ -420,7 +420,7 @@ export function TestimonialsSection() {
         <div ref={pinWrapRef} className="relative">
           <div ref={headerRef} className="relative z-[2] mx-auto max-w-[860px] text-center">
             <span className="mb-4 inline-flex  items-center rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[0.62rem] uppercase tracking-[0.24em] text-white/54">
-              TESTEMUNHOS
+              DEPOIMENTOS
             </span>
             <h2
               id="testimonials-title"
@@ -429,7 +429,7 @@ export function TestimonialsSection() {
               Resultados que constroem confiança.
             </h2>
             <p className="mx-auto mt-5 max-w-[760px] text-[0.98rem] leading-7 text-white/52 sm:text-[1.02rem]">
-              Depoimentos de clientes, parceiros e projetos que viveram uma experiencia premium de produto, design e execucao.
+              Depoimentos de clientes, parceiros e projetos que viveram uma experiência premium de produto, design e execução.
             </p>
           </div>
 

@@ -542,7 +542,7 @@ export function StatementVideoShowcase() {
                 <div className="hero-block grid gap-3 rounded-[18px] border border-white/8 bg-[linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015))] p-3 sm:gap-4 sm:rounded-[20px] sm:p-4 md:gap-5 md:p-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.9fr)] lg:items-stretch lg:rounded-[26px] lg:p-6">
                   <div className="flex min-w-0 flex-col gap-3 sm:gap-4">
                     <div className="hero-kicker inline-flex w-fit rounded-full border border-[#ff6b35]/18 bg-[#ff6b35]/10 px-2.5 py-1 text-[0.5rem] uppercase tracking-[0.18em] text-[#ffd2c0] sm:px-3 sm:text-[0.56rem] sm:tracking-[0.2em]">
-                      Interface build
+                      Construção da interface
                     </div>
                     <div className="space-y-2.5 sm:space-y-3">
                       <div className="hero-title-line h-3.5 w-[88%] rounded-full bg-white/16 sm:h-4" />
@@ -559,7 +559,7 @@ export function StatementVideoShowcase() {
                       data-cursor-target="launch"
                       className="hero-cta-build inline-flex w-fit rounded-full border border-[#ff6b35]/20 bg-[#ff6b35]/88 px-3.5 py-2 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-white shadow-[0_14px_28px_rgba(255,107,53,0.16)] sm:px-4 sm:text-[0.62rem] sm:tracking-[0.18em]"
                     >
-                      Launch block
+                      Lançar bloco
                     </div>
                   </div>
 
@@ -577,7 +577,7 @@ export function StatementVideoShowcase() {
                 <div className="min-h-0 flex-1" />
 
                 <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3 md:grid-cols-3 md:gap-3.5 xl:gap-6">
-                  {["Wireframe", "Motion", "Refine"].map((label, index) => (
+                  {["Wireframe", "Movimento", "Refino"].map((label, index) => (
                     <div
                       key={label}
                       ref={
@@ -602,7 +602,7 @@ export function StatementVideoShowcase() {
               </div>
 
               <div className="floating-chip absolute bottom-[3.8%] left-[5%] max-w-[calc(100%-1.5rem)] rounded-full border border-[#ff6b35]/16 bg-[#ff6b35]/10 px-2.5 py-1 text-[0.46rem] uppercase tracking-[0.16em] text-[#ffd4c4] backdrop-blur-md sm:left-auto sm:right-[7%] sm:top-[16%] sm:bottom-auto sm:max-w-none sm:px-3 sm:py-1.5 sm:text-[0.52rem] sm:tracking-[0.2em]">
-                UI reveal
+                Revelação de UI
               </div>
 
               <div ref={cursorRef} data-build-cursor className="build-cursor absolute left-0 top-0 h-7 w-7 rounded-full border border-white/10 bg-white/[0.08] p-1.5 shadow-[0_14px_30px_rgba(0,0,0,0.26)] backdrop-blur-md sm:h-8 sm:w-8">

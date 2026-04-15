@@ -27,8 +27,8 @@ export function StatementSection() {
           </div>
 
           <p className="statement-copy mt-6 max-w-[32ch] translate-y-8 text-[0.95rem] leading-[1.8] text-white/56 sm:mt-6 sm:max-w-[520px] sm:text-[0.98rem] sm:leading-7 sm:text-white/50">
-            Do conceito ao lan&ccedil;amento, crio experi&ecirc;ncias modernas com forte identidade
-            visual, intera&ccedil;&otilde;es suaves e arquitetura front-end escal&aacute;vel para
+            Do conceito ao lançamento, crio experiências modernas com forte identidade
+            visual, interações suaves e arquitetura front-end escalável para
             marcas ambiciosas e produtos digitais.
           </p>
 

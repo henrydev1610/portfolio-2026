@@ -2,6 +2,7 @@ import type { StaticImageData } from "next/image";
 
 import andreaImage from "@/app/krug.png";
 import devBrazukaImage from "@/app/dev-brazuca.png";
+import sempreBelaImage from "@/app/sempre-bela.png";
 import vagasDevImage from "@/app/vagas-dev.png";
 
 export type ProjectCategory = "WordPress" | "React Native" | "React" | "Express.js";
@@ -49,6 +50,17 @@ export const projects: ProjectItem[] = [
     stack: ["React", "TypeScript", "UX de conteúdo"],
   },
   {
+    title: "Clinica Estetica Sempre Bela",
+    category: "React",
+    tag: "Site para clinica de estetica premium",
+    description:
+      "Site para clinica de estetica alto padrao com direcao visual sofisticada, foco em conversao e experiencia elegante.",
+    image: sempreBelaImage,
+    href: "https://clinica-estetica-nu.vercel.app/",
+    accent: "from-[#f6c9ad]/34 via-white/10 to-transparent",
+    stack: ["React", "Site institucional", "UI premium"],
+  },
+  {
     title: "Vagas Dev",
     category: "Express.js",
     tag: "Produto completo",
@@ -93,3 +105,5 @@ export const projects: ProjectItem[] = [
     stack: ["Express.js", "Node.js", "Engenharia escalável"],
   },
 ];
+
+

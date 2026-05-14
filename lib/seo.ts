@@ -8,7 +8,7 @@ export const siteConfig = {
   locale: "pt_BR",
   creator: "Henry Dev",
   publisher: "Henry Dev",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://henrybenjamin.dev",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.henrydev.com.br",
   ogImage: "/opengraph-image",
   email: "henrybenjamin.dev@gmail.com",
   city: "São Paulo",

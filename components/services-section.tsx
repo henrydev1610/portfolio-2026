@@ -110,6 +110,7 @@ export function ServicesSection() {
 
   return (
     <section
+      id="services"
       ref={sectionRef}
       className="relative px-1 pb-5 pt-12 sm:px-2 lg:px-3 lg:pb-8 lg:pt-16"
       aria-labelledby="services-title"
@@ -174,7 +175,7 @@ export function ServicesSection() {
           ))}
         </div>
 
-        <div id="contact" className="services-cta-wrap relative z-[1] mt-10 lg:mt-14">
+        <div id="services-cta" className="services-cta-wrap relative z-[1] mt-10 lg:mt-14">
           <div className="services-cta relative mx-auto max-w-[860px] rounded-[30px] border border-white/8 bg-[linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.015))] px-6 py-8 text-center shadow-[0_24px_70px_rgba(0,0,0,0.2)] sm:px-8 sm:py-10">
             <div className="pointer-events-none absolute inset-0 rounded-[inherit] bg-[radial-gradient(circle_at_center,rgba(255,107,53,0.10),transparent_48%)]" />
             <p className="relative z-[1] mx-auto max-w-[18ch] text-[clamp(1.75rem,3vw,3rem)] leading-[1] font-medium tracking-[-0.05em] text-white">

@@ -5,16 +5,29 @@ import { NoiseOverlay } from "@/components/noise-overlay";
 import { PageIntro } from "@/components/page-intro";
 import { PortfolioHomeEffects } from "@/components/portfolio-home-effects";
 import { ProjectCards } from "@/components/project-cards";
+import { SeoJsonLd } from "@/components/seo-json-ld";
 import { ServicesSection } from "@/components/services-section";
 import { SiteNavbar } from "@/components/site-navbar";
 import { StatementSection } from "@/components/statement-section";
 import { StickyFloatingMenu } from "@/components/sticky-floating-menu";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { TechStackCarousel } from "@/components/tech-stack-carousel";
+import { absoluteUrl } from "@/lib/seo";
 
 export function PortfolioHome() {
   return (
     <main id="top" className="page-shell">
+      <SeoJsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Home",
+          url: absoluteUrl("/"),
+          inLanguage: "pt-BR",
+          description:
+            "Portfólio de Henry Dev com serviços, projetos, tecnologias e contato para desenvolvimento de soluções digitais.",
+        }}
+      />
       <PortfolioHomeEffects />
       <PageIntro />
       <NoiseOverlay />

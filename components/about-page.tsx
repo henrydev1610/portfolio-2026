@@ -7,12 +7,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 import { AppLink } from "@/components/app-link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import aboutBackground from "@/app/bg-about.jpeg";
 import { FloatingActionButtons } from "@/components/floating-action-buttons";
 import { MagneticButton } from "@/components/magnetic-button";
 import { NoiseOverlay } from "@/components/noise-overlay";
+import { SeoJsonLd } from "@/components/seo-json-ld";
 import { SiteNavbar } from "@/components/site-navbar";
 import { StickyFloatingMenu } from "@/components/sticky-floating-menu";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -163,6 +166,40 @@ export function AboutPage() {
 
   return (
     <main id="top" className="page-shell">
+      <SeoJsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Sobre Henry Dev",
+            url: absoluteUrl("/about"),
+            description:
+              "Trajetoria, abordagem e especialidades de Henry Dev em desenvolvimento de software e experiencia digital.",
+            inLanguage: "pt-BR",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Inicio", item: absoluteUrl("/") },
+              { "@type": "ListItem", position: 2, name: "Sobre", item: absoluteUrl("/about") },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            name: "Henry Dev",
+            areaServed: "Brasil",
+            url: siteConfig.siteUrl,
+            serviceType: ["Desenvolvimento Web", "UI/UX Interface", "Landing Pages"],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: siteConfig.city,
+              addressCountry: siteConfig.country,
+            },
+          },
+        ]}
+      />
       <NoiseOverlay />
       <FloatingActionButtons />
       <StickyFloatingMenu targetSelector="#site-navbar" />
@@ -170,6 +207,7 @@ export function AboutPage() {
       <div className="app-shell-mobile mx-auto min-h-screen max-w-[1600px] px-3 py-3 sm:px-5 sm:py-5 lg:px-6">
         <div className="relative overflow-hidden rounded-[38px] border border-white/8 bg-[#111111] px-3.5 pb-8 pt-3.5 shadow-[0_32px_100px_rgba(0,0,0,0.28)] sm:px-6 sm:pb-10 sm:pt-6 lg:rounded-[34px] lg:border-white/6 lg:px-10 lg:pb-14">
           <SiteNavbar />
+          <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Sobre" }]} />
 
           <section className="hero-shell relative overflow-hidden rounded-[36px] px-1.5 pt-2.5 sm:px-2 sm:pt-2 lg:min-h-[860px] lg:rounded-[34px]">
             <div className="about-hero-image absolute inset-0 z-0 overflow-hidden rounded-[36px] lg:rounded-[34px]">
@@ -191,8 +229,8 @@ export function AboutPage() {
 
             <div className="relative z-[5] px-4 pb-7 pt-5 sm:px-5 sm:pb-8 sm:pt-5 lg:px-0 lg:pb-0 lg:pt-0">
               <div className="mt-2 px-2 sm:mt-3 lg:hidden">
-                <h1 className="about-name text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
-                  Henry
+                <h1 className="about-name text-center text-[clamp(3.2rem,13vw,8rem)] leading-[0.9] font-semibold tracking-[-0.07em] text-white">
+                  Sobre Henry Dev
                 </h1>
               </div>
 
@@ -251,9 +289,9 @@ export function AboutPage() {
             </div>
 
             <div className="relative z-[5] mt-6 hidden px-2 lg:mt-[-48px] lg:block lg:px-0">
-              <h1 className="about-name text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
+              <span aria-hidden="true" className="about-name text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white block">
                 Henry
-              </h1>
+              </span>
             </div>
           </section>
 

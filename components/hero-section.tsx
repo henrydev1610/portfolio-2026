@@ -8,6 +8,7 @@ import { PartnerMarquee } from "@/components/partner-marquee";
 export function HeroSection() {
   return (
     <section className="hero-shell relative overflow-hidden rounded-[36px] px-1.5 pt-2.5 sm:px-2 sm:pt-2 lg:min-h-[860px] lg:rounded-[34px]">
+      <h1 className="sr-only">Henry Dev - Desenvolvedor de software e experiencias digitais premium</h1>
       <div className="hero-image absolute inset-0 z-0 overflow-hidden rounded-[36px] lg:rounded-[34px]">
         <Image
           src={heroPhoto}
@@ -27,9 +28,9 @@ export function HeroSection() {
 
       <div className="relative z-[5] px-4 pb-5 pt-5 sm:px-5 sm:pb-6 sm:pt-5 lg:px-0 lg:pb-0 lg:pt-0">
         <div className="mt-2 px-2 sm:mt-3 lg:hidden">
-          <h1 className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
+          <span aria-hidden="true" className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white block">
             Henry
-          </h1>
+          </span>
         </div>
 
         <div className="grid gap-6 pt-5 sm:gap-7 lg:grid-cols-[1fr_auto_1fr] lg:items-start lg:pt-0">
@@ -69,9 +70,9 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-[5] mt-5 hidden px-2 sm:mt-3 lg:mt-[-74px] lg:block lg:px-0">
-        <h1 className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white">
+        <span aria-hidden="true" className="hero-name translate-y-10 text-center text-[clamp(3.65rem,17vw,12.6rem)] leading-[0.88] font-semibold tracking-[-0.09em] text-white block">
           Henry
-        </h1>
+        </span>
       </div>
 
       <div className="relative z-[5]">

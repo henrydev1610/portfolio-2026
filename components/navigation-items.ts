@@ -1,6 +1,8 @@
 export const navigationItems = [
-  { label: "Início", href: "/" },
+  { label: "Inicio", href: "/" },
   { label: "Sobre", href: "/about" },
-  { label: "Projetos", href: "/#projects" },
+  { label: "Projetos", href: "/projects" },
+  { label: "Servicos", href: "/#services" },
   { label: "Contato", href: "/#contact" },
 ] as const;
+

@@ -7,13 +7,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useState } from "react";
 
 import { AppLink } from "@/components/app-link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { FloatingActionButtons } from "@/components/floating-action-buttons";
 import { MagneticButton } from "@/components/magnetic-button";
 import { NoiseOverlay } from "@/components/noise-overlay";
+import { SeoJsonLd } from "@/components/seo-json-ld";
 import { SiteNavbar } from "@/components/site-navbar";
 import { StickyFloatingMenu } from "@/components/sticky-floating-menu";
 import { projectCategories, projects, type ProjectCategory } from "@/data/projects";
 import { useProjectCardMotion } from "@/components/use-project-card-motion";
+import { absoluteUrl } from "@/lib/seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -149,6 +152,27 @@ export function ProjectsPage() {
 
   return (
     <main id="top" className="page-shell">
+      <SeoJsonLd
+        data={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "Projetos",
+            url: absoluteUrl("/projects"),
+            description:
+              "Selecao de projetos de desenvolvimento web, plataformas e interfaces com foco em performance e experiencia.",
+            inLanguage: "pt-BR",
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Inicio", item: absoluteUrl("/") },
+              { "@type": "ListItem", position: 2, name: "Projetos", item: absoluteUrl("/projects") },
+            ],
+          },
+        ]}
+      />
       <NoiseOverlay />
       <FloatingActionButtons />
       <StickyFloatingMenu targetSelector="#site-navbar" />
@@ -156,8 +180,10 @@ export function ProjectsPage() {
       <div className="app-shell-mobile mx-auto min-h-screen max-w-[1600px] px-3 py-3 sm:px-5 sm:py-5 lg:px-6">
         <div className="relative overflow-hidden rounded-[38px] border border-white/8 bg-[#111111] px-3.5 pb-8 pt-3.5 shadow-[0_32px_100px_rgba(0,0,0,0.28)] sm:px-6 sm:pb-10 sm:pt-6 lg:rounded-[34px] lg:border-white/6 lg:px-10 lg:pb-14">
           <SiteNavbar />
+          <Breadcrumbs items={[{ label: "Inicio", href: "/" }, { label: "Projetos" }]} />
 
           <section className="hero-shell relative overflow-hidden rounded-[36px] border border-white/8 bg-[linear-gradient(180deg,rgba(9,9,10,0.98),rgba(12,12,13,0.98))] px-4 py-10 sm:px-5 sm:py-12 lg:min-h-[620px] lg:rounded-[34px] lg:px-10 lg:py-14">
+            <h1 className="sr-only">Projetos de desenvolvimento e design digital de Henry Dev</h1>
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_24%),radial-gradient(circle_at_50%_18%,rgba(255,107,53,0.12),transparent_28%),linear-gradient(180deg,rgba(255,255,255,0.015),transparent_30%)]" />
             <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:96px_96px]" />
             <div className="pointer-events-none absolute inset-x-[10%] top-[12%] h-[34%] rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.14),transparent_62%)] blur-3xl" />

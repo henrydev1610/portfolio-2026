@@ -4,18 +4,19 @@ import { PortfolioHome } from "@/components/portfolio-home";
 import { buildPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "Portfólio de Desenvolvimento Web Premium",
+  title: "Henry Dev | Desenvolvedor Full Stack, Sites e Sistemas Web",
   description:
-    "Conheça projetos, serviços e soluções digitais criadas por Henry Dev com foco em performance, experiência do usuário e conversão.",
+    "Desenvolvimento de sites, sistemas web e aplicacoes modernas com React, Next.js, Node.js e TypeScript, com foco em performance, design premium e experiencia do usuario.",
   path: "/",
   keywords: [
-    "portfolio desenvolvedor web",
-    "criacao de sites premium",
-    "next.js freelancer",
-    "desenvolvedor frontend brasil",
+    "desenvolvedor full stack",
+    "desenvolvimento de sites",
+    "sistemas web",
+    "react next.js node.js typescript",
   ],
 });
 
 export default function Home() {
   return <PortfolioHome />;
 }
+

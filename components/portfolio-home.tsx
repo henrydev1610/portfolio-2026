@@ -21,11 +21,11 @@ export function PortfolioHome() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebPage",
-          name: "Home",
+          name: "Henry Dev | Desenvolvedor Full Stack, Sites e Sistemas Web",
           url: absoluteUrl("/"),
           inLanguage: "pt-BR",
           description:
-            "Portfólio de Henry Dev com serviços, projetos, tecnologias e contato para desenvolvimento de soluções digitais.",
+            "Desenvolvimento de sites, sistemas web e aplicacoes modernas com React, Next.js, Node.js e TypeScript, com foco em performance, design premium e experiencia do usuario.",
         }}
       />
       <PortfolioHomeEffects />
